@@ -20,6 +20,7 @@ CONNECTORS_CATALOGUE = {
     'MSSQL': 'mssql.mssql_connector.MSSQLConnector',
     'MySQL': 'mysql.mysql_connector.MySQLConnector',
     'OData': 'odata.odata_connector.ODataConnector',
+    'ODBC': 'odbc.odbc_connector.ODBCConnector',
     'OracleSQL': 'oracle_sql.oracle_sql_connector.OracleSQLConnector',
     'Postgres': 'postgres.postgresql_connector.PostgresConnector',
     'SapHana': 'sap_hana.sap_hana_connector.SapHanaConnector',
