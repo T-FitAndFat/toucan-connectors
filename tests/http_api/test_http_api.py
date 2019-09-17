@@ -251,6 +251,7 @@ def test_with_proxies(mocker):
     HttpAPIConnector(**data_provider).get_df(HttpAPIDataSource(**data_source))
     'proxies' in req.call_args[1]
 
+
 def test_with_cert(mocker):
     req = mocker.patch('toucan_connectors.http_api.http_api_connector.Session.request')
     f = 'toucan_connectors.http_api.http_api_connector.transform_with_jq'
@@ -271,4 +272,3 @@ def test_with_cert(mocker):
 
     HttpAPIConnector(**data_provider).get_df(HttpAPIDataSource(**data_source))
     'cert' in req.call_args[1]
-

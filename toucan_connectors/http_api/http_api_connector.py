@@ -54,7 +54,7 @@ class HttpAPIConnector(ToucanConnector):
     data_source_model: HttpAPIDataSource
 
     baseroute: str
-    cert: List[FilePath]= None
+    cert: List[FilePath] = None
     auth: Auth = None
     template: Template = None
 
