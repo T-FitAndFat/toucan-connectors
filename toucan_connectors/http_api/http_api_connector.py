@@ -2,9 +2,9 @@ from enum import Enum
 
 from jq import jq
 import pandas as pd
-from pydantic import BaseModel, Schema
+from pydantic import BaseModel, Schema, FilePath
 from requests import Session
-from typing import Union
+from typing import Union, List
 
 from toucan_connectors.toucan_connector import ToucanConnector, ToucanDataSource
 from toucan_connectors.common import nosql_apply_parameters_to_query
@@ -54,6 +54,7 @@ class HttpAPIConnector(ToucanConnector):
     data_source_model: HttpAPIDataSource
 
     baseroute: str
+    cert: List[FilePath]= None
     auth: Auth = None
     template: Template = None
 
@@ -68,7 +69,7 @@ class HttpAPIConnector(ToucanConnector):
         """
         jq_filter = query['filter']
 
-        available_params = ['url', 'method', 'params', 'data', 'json', 'headers', 'proxies']
+        available_params = ['url', 'method', 'params', 'data', 'json', 'headers', 'proxies', 'cert']
         query = {k: v for k, v in query.items() if k in available_params}
         query['url'] = '/'.join([self.baseroute.rstrip('/'), query['url'].lstrip('/')])
 
